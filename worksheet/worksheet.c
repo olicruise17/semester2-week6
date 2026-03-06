@@ -1,3 +1,7 @@
+// Name: Oliver Cruise
+// StudentId: 201823825
+
+
 /**
  * Week 6 Worksheet - Functions Practice
  *
@@ -49,7 +53,9 @@ int find_max(int *arr, int n, int *index);
  */
 int add_values(int a, int b) {
   // TODO: Implement this function
-  return 0; // Replace this
+
+  int sum = a + b;
+  return sum; // Replace this
 }
 
 /**
@@ -70,6 +76,9 @@ int add_values(int a, int b) {
 void swap_values(int *a, int *b) {
   // TODO: Implement this function
   // Hint: You'll need a temporary variable
+  int temp = *b;
+  *b = *a;
+  *a = temp;
 }
 
 /**
@@ -85,8 +94,12 @@ void swap_values(int *a, int *b) {
  * Example: sum_array([1,2,3,4,5], 5) returns 15
  */
 int sum_array(int *arr, int n) {
+  int sum = 0;
   // TODO: Implement this function
-  return 0; // Replace this
+  for (int i=0; i<n; i++) {
+    sum = sum + *(arr + i);
+  }
+  return sum; // Replace this
 }
 
 /**
@@ -107,6 +120,12 @@ int sum_array(int *arr, int n) {
  */
 void reverse_array(int *arr, int n) {
   // TODO: Implement this function
+
+  for (int i=0; i<(n/2); i++){
+    int temp = *(arr + i);  // set temp to item
+    *(arr + i) = *((arr + n - 1) - i);  // copy item into corresponding item
+    *((arr + n - 1) - i) = temp;    // copy temp back into other item
+  }
 }
 
 /**
@@ -125,7 +144,16 @@ void reverse_array(int *arr, int n) {
 double average(int *arr, int n) {
   // TODO: Implement this function
   // Hint: Be careful with integer division!
-  return 0.0; // Replace this
+
+  double sum = 0.0;
+
+  for (int i=0; i<n; i++) {
+    sum = sum + *(arr + i);
+  }
+
+  double average = sum/n;
+
+  return average; // Replace this
 }
 
 /**
@@ -149,7 +177,15 @@ double average(int *arr, int n) {
 int find_max(int *arr, int n, int *index) {
   // TODO: Implement this function
   *index = 0;
-  return 0; // Replace this
+  int max = arr[0];
+
+  for (int i=0; i<n; i++) {
+    if (*(arr + i) > max) {
+      max = *(arr + i);
+      *index = i;
+    }
+  }
+  return max; // Replace this
 }
 
 /* ============================================================
